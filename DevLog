@@ -1,0 +1,126 @@
+Log 
+
+Il faut :
+	
+	Faire la mise en forme
+	- Songer à remettre la GUI en ordre (sur les dialogues aussi)
+	
+	Verifier edition livre
+
+	- Harmoniser types des variables BDD et variables dans le programme.
+	- Accorder la suppression (celles des livres est deja faite)
+
+27/1 :
+	- Les titres s'adaptent
+	- Suppression de variables non utilisees dans le code
+	- Correction de l'exception lorsque l'on rend les emprunts
+	- Correction de la suppression d'un livre qui ne supprimait pas les emprunts
+	- Ajout de la confirmation pour supprimer
+	- Erreurs quand aucune ligne n'est selectionnee detectees
+
+20/1 :
+	- Ajout des boutons "Ajouter" et "Supprimer" à l'écran des livres direct.
+		Passage des ActionListner en classes internes
+	- Correction de la barre de recherche numerique des livres
+	- Correction de la suppression des emprunts (
+		IL RESTE UNE EXCEPTION
+
+19/1 :
+	- Correction des titres qui n'avaient pas de majuscules
+	- Correction du message d'erreur qui ne s'affichait pas lors de la suppression d'un eleve
+	- Ajout de la consultation directe des livres
+	- Ajout du Retour depuis les livres
+	- Ajout de la vision des emprunts depuis un livre -> EBAUCHE
+		#Les barres de recherche continuent de s'afficher
+		#Le bouton historique continue de s'afficher
+		
+	
+	
+13/1 :
+	- En theorie les suppressions fonctionnent
+		Problemes :
+			Supprimer une classe si un eleve est irreguliers entraine un crash
+			Supprimer un eleve directement ne se soucie pas si les emprunts sont rendus ou non
+			Possible doublon entre les suppressions specifiques et le supprimer general
+			Verifier que pr supprimer un livre, il doit etre rendu
+			Supprimer les emprunts devrait se faire sans selection et supprimer tous les emprunts rendus !
+			
+			LE GROS DU PROBLEME : les indices sont basées sur les lignes du tableau et non l'ID de la table !!!
+			
+			Correction du SupprimerEleve : effet de bord et double suppression.
+			Correction de la possibilite de supprimer un eleve qui n'avait pas rendu son livre 
+				(La condition doit cependant etre deplacee sur la fenetre pour afficher le message)
+			Correction des erreurs d'ID
+			Correction des suppressions qui ne rafraichissaient pas les tableaux
+			Meilleure gestion des exceptions pour les CREATE TABLE
+	
+	- Passage des ajouts via un nouveau dialogue
+	
+	
+16/12 :
+	- Correction de l'affichage du livre non rendu
+	- Emprunter un livre retourne automatiquement sur l'écran des emprunts
+	- Les Emprunts sont classés du plus récent au plus ancien (ajout de ID dans la table)
+	- Correction du problème qui empêchait l'ajout de classe
+	- Mode Admin ajouté
+
+15/12 : 
+	- On peut ajouter des livres
+	- On peut suprimmer les livres, woohoo
+
+9/12 :
+	- Les entetes des tableaux sont maintenant mieux presentees (suppression du _ et mise en majuscule)
+	- La Fenetre "Ajouter un Livre" est faite (Il manque l'ajout dans la BDD mais les erreurs sont gérées)
+	- Bug du bouton "rendre" corrigé
+	- Correction du message lorsque l'emprunt n'est pas rendu
+	- Correction du bug lors du retour depuis la liste de livres
+	- L'exception s'il n'y a aucun livre non rendu n'apparaît plus
+	 
+	
+	Bug Connu : "rendre" écrase la date de rendu
+	
+	Passer par dates pour gérer les emprunts ? (actuellement VARCHAR)
+	
+	- Faire ajout de livres (peut etre via une fenetre specifique)
+	- Modifier les interfaces graphiques pour etre plus lisibles et coherentes
+	- Possible : ecarter le Panneau pour en faire une classe et alleger Fenetre.
+	- Possible : ecarter les differents ActionListener dans un autre fichier.
+	- Verifier les suppressions (variable niveau pour savoir ?) (Supprimer une classe implique d'en supprimer les enfants)
+    ?- Fonction "rotation" pour chaque rentree de classes
+	
+2/12 :
+	Le bouton emprunter fonctionne
+	La fonction "rendre" fonctionne
+	
+	
+1/12 :
+	Panneau de livres fonctionnel (pas testé sans emprunt)
+	 
+18/11 :
+	- Bouton retour ajoute et operationnel (La navigation par arbre n'est plus necessaire)
+	- On peut ajouter des eleves sans problemes
+	- Le titre et les labels changent avec le tableau
+	- La Suppression fonctionnera si le Titre change.
+	
+	 
+3/11 :
+	- La requete modele est enregistree et fonctionne correctement.
+
+16 / 9 :
+	- Les livres sont importés correctement.
+	
+29 / 9 :
+	- Esquisse de fenêtre faite.
+	- Les boutons répondent correctement.
+	
+	- Il faut adapter le code : 1 TableModel ? 1 JTable voire 1 Panel ?
+	- Revoir les méthodes de GBD pour obtenir des résultats plus complexes (Classes + effectifs, choix des variables
+	affichées ou non)
+	- Inscrire les requêtes derrière chaque bouton.
+	- Réfléchir au procédé d'emprunt (plus simple : Classe puis Eleve puis Emprunter(choix dans la base de livre via le 
+	numéro du livre))
+	- Ajouter un bouton "Retour" pour faciliter la navigation. (Classe -> Eleves)
+	- Accueil (acces livres / acces classes / acces emprunts)
+	
+A Faire :
+	Fenetres et boutons
